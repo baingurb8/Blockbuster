@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Blockbuster.views.ShopPage"
+             Title="ShopPage">
+    <VerticalStackLayout>
+        <SearchBar x:Name="SearchEntry" Placeholder="Search movies and video games" />
+        <Button x:Name="AddButton" Clicked="AddButton_Clicked" Text="Add Movie Or Video"/>
+        <ListView x:Name="MoviesListView" ItemTapped="MoviesListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding CoverUrl}" WidthRequest="100" HeightRequest="150" />
+                            <StackLayout>
+                                <Label Text="{Binding Title}" />
+                                <Label Text="{Binding Director}" />
+                                <Label Text="{Binding Studio}" />
+                                <Label Text="{Binding Rating}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="VideoGamesListView" ItemTapped="VideoGamesListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding CoverUrl}" WidthRequest="100" HeightRequest="150" />
+                            <StackLayout>
+                                <Label Text="{Binding Title}" />
+                                <Label Text="{Binding Rating}" />
+                                <Label Text="{Binding Developer}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

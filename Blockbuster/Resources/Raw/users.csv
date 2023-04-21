@@ -1,0 +1,9 @@
+﻿
+
+async Task LoadMauiAsset()
+{
+    using var stream = await FileSystem.OpenAppPackageFileAsync("users.csv");
+    using var reader = new StreamReader(stream);
+
+    var contents = reader.ReadToEnd();
+}

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
@@ -49,6 +49,7 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="Resources\Raw\users.csv" LogicalName="users.csv" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -57,8 +58,14 @@
 
 	<ItemGroup>
 	  <None Remove="model\" />
+	  <None Remove="views\" />
+	  <None Remove="Resources\Raw\users.txt" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="model\" />
+	  <Folder Include="views\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Raw\users.csv" />
 	</ItemGroup>
 </Project>

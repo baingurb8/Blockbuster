@@ -21,12 +21,29 @@
             Placeholder="Password"
             IsPassword="True"
             />
+
+        <StackLayout Orientation="Horizontal">
+            <RadioButton
+                Content="Admin"
+                GroupName="UserType"
+                CheckedChanged="RadioButton_CheckedChanged"
+                />
+            <RadioButton
+                Content="Customer"
+                GroupName="UserType"
+                CheckedChanged="RadioButton_CheckedChanged"
+                />
+        </StackLayout>
+
+
+        
+
         <Button
             x:Name="LoginButton"
             Text="Login"
             Clicked="LoginButton_Clicked"
-            />
-
+        />
+   
             
 
     </VerticalStackLayout>
