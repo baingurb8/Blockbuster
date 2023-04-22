@@ -1,5 +1,4 @@
 ﻿namespace Blockbuster;
-using Blockbuster.model;
 using Blockbuster.views;
 
 public partial class LoginPage : ContentPage

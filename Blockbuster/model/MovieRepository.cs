@@ -11,10 +11,10 @@ namespace Blockbuster
             {
                 new Movie
                 {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
+                   Title = "Insidious",
+                   Director="Dereck Glass",
+                   Studio  = "WarneBros.",
+                   Rating = MovieRating.PG13
 
 
                 },
@@ -22,10 +22,10 @@ namespace Blockbuster
 
                  new Movie
                 {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
+                   Title = "Harry Potter",
+                   Director="Chris Colombus",
+                   Studio  = "FOX",
+                   Rating = MovieRating.PG
 
 
                 },
@@ -33,10 +33,10 @@ namespace Blockbuster
 
                   new Movie
                 {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
+                   Title = "Mario",
+                   Director="Stephen Uzamaki",
+                   Studio  = "Studio Perriot",
+                   Rating = MovieRating.G
 
 
                 },
@@ -44,78 +44,14 @@ namespace Blockbuster
 
                    new Movie
                 {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
+                   Title = "John Wick",
+                   Director="Chris Nolan",
+                   Studio  = "Josh Films",
+                   Rating = MovieRating.R
 
 
                 },
 
-
-                    new Movie
-                {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
-
-
-                },
-
-
-                     new Movie
-                {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
-
-
-                },
-
-
-                      new Movie
-                {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
-
-
-                },
-
-
-                       new Movie
-                {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
-
-
-                },
-
-
-                        new Movie
-                {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
-
-
-                },
-
-                         new Movie
-                {
-                   title = "",
-                   director="",
-                   studio  = "",
-                   rating =""
-
-
-                },
             };
         }
         public static List<Movie> GetAllMovies()
@@ -123,13 +59,24 @@ namespace Blockbuster
             return _movies;
         }
 
+
+
+        public static void AddMovie(Movie movie)
+        {
+            _movies.Add(movie);
+        }
+
+        public static void DeleteMovie(Movie movie)
+        {
+            _movies.Remove(movie);
+        }
         public static List<Movie> SearchByTitle(string title)
         {
             var matchingMovies = new List<Movie>();
 
             foreach (var movie in _movies)
             {
-                if (movie.title.Contains(title, StringComparison.OrdinalIgnoreCase))
+                if (movie.Title.Contains(title, StringComparison.OrdinalIgnoreCase))
                 {
                     matchingMovies.Add(movie);
                 }

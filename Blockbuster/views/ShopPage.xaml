@@ -4,35 +4,83 @@
              x:Class="Blockbuster.views.ShopPage"
              Title="ShopPage">
     <VerticalStackLayout>
-        <SearchBar x:Name="SearchEntry" Placeholder="Search movies and video games" />
-        <Button x:Name="AddButton" Clicked="AddButton_Clicked" Text="Add Movie Or Video"/>
-        <ListView x:Name="MoviesListView" ItemTapped="MoviesListView_ItemTapped">
+        <StackLayout Orientation="Horizontal">
+            <RadioButton
+                Content="Movie"
+                GroupName="ProductType"
+                x:Name="MovieButton"
+                IsChecked="True"
+                CheckedChanged="RadioButton_CheckedChanged"
+                />
+            <RadioButton
+                Content="Video Game"
+                x:Name="VideoGameButton"
+                GroupName="ProductType"
+                CheckedChanged="RadioButton_CheckedChanged"
+                />
+        </StackLayout>
+        <SearchBar x:Name="MovieSearchEntry" Placeholder="Search movies" IsVisible="true" />
+        <SearchBar x:Name="VideoGameSearchEntry" Placeholder="Search video games" IsVisible="False" />
+        
+        <Button x:Name="AddButton" 
+                Clicked="AddButton_Clicked" 
+                Text="Add Movie Or Video"/>
+        
+        <Label 
+               x:Name="MoviesAvalaibleText"
+               FontAttributes="Bold" 
+               Margin="0,20,0,0"/>
+        
+        <ListView x:Name="MoviesListView" 
+                  ItemTapped="MoviesListView_ItemTapped" 
+                  RowHeight="130">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="{Binding CoverUrl}" WidthRequest="100" HeightRequest="150" />
+                        <StackLayout Orientation="Horizontal" 
+                                     Spacing="30">
+                            <!--<Image Source="{Binding CoverUrl}" WidthRequest="100" HeightRequest="150" />-->
                             <StackLayout>
-                                <Label Text="{Binding Title}" />
-                                <Label Text="{Binding Director}" />
-                                <Label Text="{Binding Studio}" />
-                                <Label Text="{Binding Rating}" />
+                                <Label Text="{Binding Title, StringFormat='Title: {0}'}" 
+                                       FontSize="Large" 
+                                       Margin="20,10,20,0"/>
+                                <Label Text="{Binding Director, StringFormat='Director: {0}'}" 
+                                       Margin="20,0,20,0" />
+                                <Label Text="{Binding Studio, StringFormat='Studio: {0}'}" 
+                                       Margin="20,0,20,0"/>
+                                <Label Text="{Binding Rating, StringFormat='Rating: {0}'}" 
+                                       Margin="20,0,0,0"/>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView x:Name="VideoGamesListView" ItemTapped="VideoGamesListView_ItemTapped">
+        
+        <Label 
+               x:Name="VideoGameAvalaibleText"
+               IsVisible="False"
+               FontAttributes="Bold" 
+               Margin="0,20,0,0"/>
+        
+        <ListView x:Name="VideoGamesListView"
+                  IsVisible="False"
+                  ItemTapped="VideoGamesListView_ItemTapped" 
+                  Margin="0,20,0,0" 
+                  RowHeight="100">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="{Binding CoverUrl}" WidthRequest="100" HeightRequest="150" />
-                            <StackLayout>
-                                <Label Text="{Binding Title}" />
-                                <Label Text="{Binding Rating}" />
-                                <Label Text="{Binding Developer}" />
+                        <StackLayout Orientation="Horizontal" 
+                                     Spacing="30">
+                            <!--<Image Source="{Binding CoverUrl}" WidthRequest="100" HeightRequest="150" />-->
+                            <StackLayout >
+                                <Label Text="{Binding Title, StringFormat='Title: {0}'}" 
+                                       Padding="20,10,20,0" />
+                                <Label Text="{Binding Rating, StringFormat='Rating: {0}'}" 
+                                       Padding="20,0,20,0"/>
+                                <Label Text="{Binding Developer, StringFormat='Developer: {0}'}" 
+                                       Padding="20,0,20,0"/>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

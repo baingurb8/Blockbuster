@@ -1,13 +1,19 @@
 ﻿using System;
 namespace Blockbuster
 {
-
+	public enum MovieRating
+	{
+		G,
+		PG,
+		PG13,
+		R,
+	}
     public class Movie
 	{
-		public string title { get; set; }
-		public string director { get; set; }
-		public string studio { get; set; }
-		public string rating { get; set; }
+		public string Title { get; set; }
+		public string Director { get; set; }
+		public string Studio { get; set; }
+		public MovieRating Rating { get; set; }
 		
 	}
 }

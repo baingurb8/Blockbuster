@@ -5,14 +5,77 @@
              Title="AddProductPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Add a movie or video game"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-         <Picker Title="Select Product Type">
+         <Picker Title="Select Product Type"
+                 x:Name="ProductPicker"
+                 SelectedIndexChanged="ProductPicker_SelectedIndexChanged">
             <Picker.Items>
                 <x:String>Movie</x:String>
                 <x:String>Video Game</x:String>
             </Picker.Items>
         </Picker>
+
+        <StackLayout x:Name="MovieEntries" IsVisible="False">
+
+            <Entry x:Name="MovieTitleEntry"
+                   Placeholder="Title"
+                   />
+            <Entry x:Name="DirectorEntry"
+                   Placeholder="Director"
+                   />
+            <Entry x:Name="StudioEntry"
+                   Placeholder="Studio"
+                   />
+             <Picker
+                 x:Name="MovieRatingPicker"
+                 Title="Select a Rating"
+                 >
+            <Picker.Items>
+                <x:String>G</x:String>
+                <x:String>PG</x:String>
+                <x:String>PG13</x:String>
+                <x:String>R</x:String>
+            </Picker.Items>
+            </Picker>
+
+            <Button x:Name="AddMovieButton"
+                    Text="Add Movie"
+                    Clicked="AddMovieButton_Clicked"
+                    />
+
+
+        </StackLayout>
+
+         <StackLayout x:Name="VideoGameEntries" IsVisible="False">
+
+
+             <Entry x:Name="VideoGameTitleEntry"
+                   Placeholder="Title"
+                   />
+            <Entry x:Name="DeveloperEntry"
+                   Placeholder="Developer"
+                   />
+             <Picker
+                 x:Name="VideoGameRatingPicker"
+                 Title="Select a Rating"
+                 >
+            <Picker.Items>
+                <x:String>E</x:String>
+                <x:String>T</x:String>
+                <x:String>M</x:String>
+            </Picker.Items>
+            </Picker>
+
+             <Button
+                 x:Name="AddVideoGameButton"
+                 Text="Add Video Game"
+                 Clicked="AddVideoGameButton_Clicked"
+                 />
+
+
+
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

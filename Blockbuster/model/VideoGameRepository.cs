@@ -11,18 +11,44 @@ namespace Blockbuster
             {
                 new VideoGame
                 {
-                    title = "",
-                    developer="",
-                    rating=""
+                    Title = "Call Of Duty",
+                    Developer="Activision",
+                    Rating= VideoGameRating.M
+
+                },
+
+                new VideoGame
+                {
+                    Title = "FIFA 23",
+                    Developer="EA Sports",
+                    Rating= VideoGameRating.E
+
+                },
+
+                new VideoGame
+                {
+                    Title = "WWE 2K23",
+                    Developer="2K Sports",
+                    Rating= VideoGameRating.T
 
                 },
 
             };
         }
 
+        public static void AddVideoGame(VideoGame videoGame)
+        {
+            _videoGames.Add(videoGame);
+        }
+
         public static List<VideoGame> GetAllVideoGames()
         {
             return _videoGames;
+        }
+
+        public static void DeleteVideoGame(VideoGame videoGame)
+        {
+            _videoGames.Remove(videoGame);
         }
 
         public static List<VideoGame> SearchByTitle(string title)
@@ -31,7 +57,7 @@ namespace Blockbuster
 
             foreach (var videoGame in _videoGames)
             {
-                if (videoGame.title.Contains(title, StringComparison.OrdinalIgnoreCase))
+                if (videoGame.Title.Contains(title, StringComparison.OrdinalIgnoreCase))
                 {
                     matchingVideoGames.Add(videoGame);
                 }
